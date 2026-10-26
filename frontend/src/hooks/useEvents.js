@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
-const eventsEndpoint = 'http://localhost:5000/api/events';
+const apiRoot = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+const eventsEndpoint = `${apiRoot}/events`;
 
 const normalizeEvent = (eventEntry) => ({
   ...eventEntry,
